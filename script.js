@@ -16,5 +16,8 @@ function calculate() {
     futureValue *= (1 + monthlyRate);
   }
 
-  document.getElementById("result").innerText = \`Estimated Savings at Retirement: $\${futureValue.toFixed(2)}\`;
+  document.getElementById("result").innerText = `Estimated Savings at Retirement: $${futureValue.toFixed(2)}`;
 }
+
+// Make the function accessible to inline onclick
+window.calculate = calculate;
