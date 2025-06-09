@@ -9,18 +9,60 @@
 <body>
 <div class="container">
   <h1>RETIREMENT CALCULATOR</h1>
-  <label>Current Age: <input type="number" id="currentAge" /></label>
-  <label>Current Savings ($): <input type="number" id="currentSavings" /></label>
-  <label>Required Retirement Savings (Today's $): <input type="number" id="requiredRetirement" /></label>
-  <label>Inflation Rate (% per annum): <input type="number" id="inflationRate" /></label>
-  <label>Retirement Age: <input type="number" id="retirementAge" /></label>
-  <label>Expected Rate of Return (% per annum): <input type="number" id="rateOfReturn" /></label>
+  <label>
+    Current Age:
+    <span class="tooltip">
+        <span class="info-icon">i</span>
+        <span class="tooltiptext">Your current age in years.</span>
+      </span>
+    <input type="number" id="currentAge" />
+  </label>
+  <label>
+    Current Savings ($):
+    <span class="tooltip">
+        <span class="info-icon">i</span>
+        <span class="tooltiptext">Total amount you have already saved for retirement.</span>
+      </span>
+    <input type="number" id="currentSavings" />
+  </label>
+  <label>
+    Required Retirement Savings (Today's $):
+    <span class="tooltip">
+        <span class="info-icon">i</span>
+        <span class="tooltiptext">The amount you want to have at retirement, in today's dollars (before inflation).</span>
+      </span>
+    <input type="number" id="requiredRetirement" />
+  </label>
+  <label>
+    Inflation Rate (% per annum):
+    <span class="tooltip">
+        <span class="info-icon">i</span>
+        <span class="tooltiptext">Expected average annual inflation rate (e.g., 6 for 6%).</span>
+      </span>
+    <input type="number" id="inflationRate" />
+  </label>
+  <label>
+    Retirement Age:
+    <span class="tooltip">
+        <span class="info-icon">i</span>
+        <span class="tooltiptext">The age at which you plan to retire.</span>
+      </span>
+    <input type="number" id="retirementAge" />
+  </label>
+  <label>
+    Expected Rate of Return (% per annum):
+    <span class="tooltip">
+        <span class="info-icon">i</span>
+        <span class="tooltiptext">Expected average annual return on your investments (e.g., 8 for 8%).</span>
+      </span>
+    <input type="number" id="rateOfReturn" />
+  </label>
   <button onclick="calculate()">Calculate</button>
   <div id="result"></div>
 </div>
 <div class="panel">
   <h2>Year-on-Year Growth</h2>
-  <canvas id="growthChart" width="280" height="180"></canvas>
+  <canvas id="growthChart" width="420" height="260"></canvas>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
