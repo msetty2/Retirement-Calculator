@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retirement Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Retirement Calculator</h1>
+    <label>Current Age: <input type="number" id="currentAge" /></label>
+    <label>Retirement Age: <input type="number" id="retirementAge" /></label>
+    <label>Current Savings ($): <input type="number" id="currentSavings" /></label>
+    <label>Monthly Contribution ($): <input type="number" id="monthlyContribution" /></label>
+    <label>Annual Interest Rate (%): <input type="number" id="interestRate" /></label>
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
