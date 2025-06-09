@@ -8,8 +8,10 @@ function calculate() {
   const retirementAge = parseInt(document.getElementById("retirementAge").value);
   const rateOfReturn = parseFloat(document.getElementById("rateOfReturn").value) / 100;
 
-  // Hide growth panel by default
+  // Hide panels by default
   document.getElementById("growthPanel").style.display = "none";
+  document.getElementById("tablePanel").style.display = "none";
+  document.getElementById("growthTable").innerHTML = "";
 
   if (
     isNaN(currentAge) ||
@@ -53,7 +55,7 @@ function calculate() {
   document.getElementById("result").innerText =
     `You need to save $${annualSavings.toFixed(2)} per year to reach your retirement goal (inflation-adjusted: $${futureRequired.toFixed(2)}).`;
 
-  // Prepare data for the chart
+  // Prepare data for the chart and table
   let savings = currentSavings;
   const savingsData = [];
   const requiredData = [];
@@ -71,6 +73,7 @@ function calculate() {
 
   // Show growth panel
   document.getElementById("growthPanel").style.display = "block";
+  document.getElementById("tablePanel").style.display = "block";
 
   // Draw chart
   const ctx = document.getElementById('growthChart').getContext('2d');
@@ -123,6 +126,22 @@ function calculate() {
       }
     }
   });
+
+  // Generate year-on-year table
+  let tableHtml = `<div class="table-responsive"><table class="growth-table"><thead><tr>
+    <th>Age</th>
+    <th>Your Savings ($)</th>
+    <th>Inflation-Adjusted Goal ($)</th>
+  </tr></thead><tbody>`;
+  for (let i = 0; i <= years; i++) {
+    tableHtml += `<tr>
+      <td>${labels[i]}</td>
+      <td>${savingsData[i].toLocaleString(undefined, {maximumFractionDigits:2})}</td>
+      <td>${requiredData[i].toLocaleString(undefined, {maximumFractionDigits:2})}</td>
+    </tr>`;
+  }
+  tableHtml += "</tbody></table></div>";
+  document.getElementById("growthTable").innerHTML = tableHtml;
 }
 
 window.calculate = calculate;
