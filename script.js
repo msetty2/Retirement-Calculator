@@ -8,6 +8,9 @@ function calculate() {
   const retirementAge = parseInt(document.getElementById("retirementAge").value);
   const rateOfReturn = parseFloat(document.getElementById("rateOfReturn").value) / 100;
 
+  // Hide growth panel by default
+  document.getElementById("growthPanel").style.display = "none";
+
   if (
     isNaN(currentAge) ||
     isNaN(currentSavings) ||
@@ -65,6 +68,9 @@ function calculate() {
       savingsData.push(savings);
     }
   }
+
+  // Show growth panel
+  document.getElementById("growthPanel").style.display = "block";
 
   // Draw chart
   const ctx = document.getElementById('growthChart').getContext('2d');
