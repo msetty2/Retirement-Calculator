@@ -3,6 +3,7 @@ body {
   min-height: 100vh;
   margin: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background:
@@ -11,7 +12,7 @@ body {
   background-size: cover;
 }
 
-.container {
+.container, .panel {
   background: rgba(24, 32, 54, 0.96);
   padding: 22px 16px 16px 16px;
   border-radius: 16px;
@@ -21,13 +22,13 @@ body {
   animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
   position: relative;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 18px auto 0 auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
-.container::before {
+.container::before, .panel::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -50,7 +51,7 @@ body {
   100% { box-shadow: 0 0 24px #ffe066, 0 0 32px #fca311; }
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   color: #ffe066;
   margin-bottom: 14px;
