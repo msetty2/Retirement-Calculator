@@ -3,7 +3,6 @@ body {
   min-height: 100vh;
   margin: 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background:
@@ -12,17 +11,24 @@ body {
   background-size: cover;
 }
 
-.container, .panel {
+.main-panels {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.container {
   background: rgba(24, 32, 54, 0.96);
-  padding: 28px 28px 22px 28px;
+  padding: 32px 32px 24px 32px;
   border-radius: 18px;
-  width: 520px;
+  width: 420px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
   border: 2.5px solid #ffe066;
   animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
   position: relative;
   overflow: hidden;
-  margin: 22px auto 0 auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -31,7 +37,21 @@ body {
 .panel {
   background: rgba(36, 44, 80, 0.98);
   border: 2.5px solid #fca311;
-  margin-top: 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  animation: popIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.big-panel {
+  width: 850px;
+  min-height: 600px;
+  padding: 32px 32px 24px 32px;
 }
 
 .container::before, .panel::before {
@@ -82,24 +102,36 @@ h1::before {
   100% { transform: translateY(-6px);}
 }
 
-label {
+/* Aligned form rows */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row {
   display: flex;
   align-items: center;
-  margin: 10px 0 2px 0;
+  gap: 12px;
+}
+
+.form-row label {
+  flex: 0 0 260px;
   color: #e0e6f7;
   font-weight: 500;
   font-size: 1.05rem;
   text-shadow: 0 1px 4px #0004;
+  display: flex;
+  align-items: center;
   gap: 7px;
 }
 
-input[type="number"] {
-  width: 100%;
+.form-row input[type="number"] {
+  flex: 1 1 auto;
   padding: 5px 9px;
   border: 1.2px solid #d1d9e6;
   border-radius: 6px;
   font-size: 1.05rem;
-  margin-top: 1px;
   background: rgba(255,255,255,0.92);
   transition: border 0.2s, background 0.2s, box-shadow 0.2s;
   outline: none;
