@@ -5,6 +5,17 @@ function calculate() {
   const monthlyContribution = parseFloat(document.getElementById("monthlyContribution").value);
   const interestRate = parseFloat(document.getElementById("interestRate").value) / 100;
 
+  if (
+    isNaN(currentAge) ||
+    isNaN(retirementAge) ||
+    isNaN(currentSavings) ||
+    isNaN(monthlyContribution) ||
+    isNaN(interestRate)
+  ) {
+    document.getElementById("result").innerText = "Please fill in all fields.";
+    return;
+  }
+
   const years = retirementAge - currentAge;
   const months = years * 12;
   const monthlyRate = interestRate / 12;
@@ -19,5 +30,4 @@ function calculate() {
   document.getElementById("result").innerText = `Estimated Savings at Retirement: $${futureValue.toFixed(2)}`;
 }
 
-// Make the function accessible to inline onclick
 window.calculate = calculate;
