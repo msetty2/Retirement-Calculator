@@ -1,89 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Retirement Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retirement Calculator</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div class="main-panels">
-  <div class="container">
-    <h1>RETIREMENT CALCULATOR</h1>
-    <form>
-      <div class="form-row">
-        <label>
-          Current Age:
-          <span class="tooltip" tabindex="0">
+    <div class="container">
+        <h1>RETIREMENT CALCULATOR</h1>
+
+        <!-- 🔗 PDF Resource Links (moved to top) -->
+        <div style="margin-bottom: 30px; text-align: center;">
+            <h2>Additional Resources</h2>
+            <p>
+                <a href="How_to_Save_Money_in_Australia_Styled_Guide.pdf" target="_blank">
+                    📄 How to Save Money in Australia
+                </a>
+            </p>
+            <p>
+                <a href="The Steady Path to Wealth A Four-Part Portfolio for the Australian Investor.pdf" target="_blank">
+                    📄 The Steady Path to Wealth
+                </a>
+            </p>
+        </div>
+
+        <form>
+            <div class="form-row">
+                <label>
+                    Current Age:
+                    <span class="tooltip" tabindex="0">
             <span class="info-icon">i</span>
             <span class="tooltiptext">Your current age in years.</span>
           </span>
-        </label>
-        <input type="number" id="currentAge" />
-      </div>
-      <div class="form-row">
-        <label>
-          Current Savings ($):
-          <span class="tooltip" tabindex="0">
+                </label>
+                <input type="number" id="currentAge" />
+            </div>
+            <div class="form-row">
+                <label>
+                    Current Savings ($):
+                    <span class="tooltip" tabindex="0">
             <span class="info-icon">i</span>
             <span class="tooltiptext">Total amount you have already saved for retirement.</span>
           </span>
-        </label>
-        <input type="number" id="currentSavings" />
-      </div>
-      <div class="form-row">
-        <label>
-          Required Retirement Savings (Today's $):
-          <span class="tooltip" tabindex="0">
+                </label>
+                <input type="number" id="currentSavings" />
+            </div>
+            <div class="form-row">
+                <label>
+                    Required Retirement Savings (Today's $):
+                    <span class="tooltip" tabindex="0">
             <span class="info-icon">i</span>
             <span class="tooltiptext">The amount you want to have at retirement, in today's dollars (before inflation).</span>
           </span>
-        </label>
-        <input type="number" id="requiredRetirement" />
-      </div>
-      <div class="form-row">
-        <label>
-          Inflation Rate (% per annum):
-          <span class="tooltip" tabindex="0">
+                </label>
+                <input type="number" id="requiredRetirement" />
+            </div>
+            <div class="form-row">
+                <label>
+                    Inflation Rate (% per annum):
+                    <span class="tooltip" tabindex="0">
             <span class="info-icon">i</span>
             <span class="tooltiptext">Expected average annual inflation rate (e.g., 6 for 6%).</span>
           </span>
-        </label>
-        <input type="number" id="inflationRate" />
-      </div>
-      <div class="form-row">
-        <label>
-          Retirement Age:
-          <span class="tooltip" tabindex="0">
+                </label>
+                <input type="number" id="inflationRate" />
+            </div>
+            <div class="form-row">
+                <label>
+                    Retirement Age:
+                    <span class="tooltip" tabindex="0">
             <span class="info-icon">i</span>
             <span class="tooltiptext">The age at which you plan to retire.</span>
           </span>
-        </label>
-        <input type="number" id="retirementAge" />
-      </div>
-      <div class="form-row">
-        <label>
-          Expected Rate of Return (% per annum):
-          <span class="tooltip" tabindex="0">
+                </label>
+                <input type="number" id="retirementAge" />
+            </div>
+            <div class="form-row">
+                <label>
+                    Expected Rate of Return (% per annum):
+                    <span class="tooltip" tabindex="0">
             <span class="info-icon">i</span>
             <span class="tooltiptext">Expected average annual return on your investments (e.g., 8 for 8%).</span>
           </span>
-        </label>
-        <input type="number" id="rateOfReturn" />
-      </div>
-      <button type="button" onclick="calculate()">Calculate</button>
-      <div id="result"></div>
-    </form>
-  </div>
-  <div class="panel big-panel" id="growthPanel" style="display: none;">
-    <h2>Year-on-Year Growth</h2>
-    <canvas id="growthChart" width="980" height="500"></canvas>
-  </div>
-  <div class="panel table-panel" id="tablePanel" style="display: none;">
-    <h2>Year-on-Year Table</h2>
-    <div id="growthTable"></div>
-  </div>
+                </label>
+                <input type="number" id="rateOfReturn" />
+            </div>
+            <button type="button" onclick="calculate()">Calculate</button>
+            <div id="result"></div>
+        </form>
+    </div>
+
+    <div class="panel big-panel" id="growthPanel" style="display: none;">
+        <h2>Year-on-Year Growth</h2>
+        <canvas id="growthChart" width="980" height="500"></canvas>
+    </div>
+
+    <div class="panel table-panel" id="tablePanel" style="display: none;">
+        <h2>Year-on-Year Table</h2>
+        <div id="growthTable"></div>
+    </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
 </body>
